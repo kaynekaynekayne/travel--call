@@ -17,7 +17,7 @@ app.use(cors({origin:true, credentials:true}));
 app.use(json());
 app.use(urlencoded({extended:false}));
 
-app.get("/", (req,res)=>res.send("haha"));
+app.get("/", (req,res)=>res.json({message:"haha"}));
 
 if(process.env.NODE_ENV==='production'){
     app.use(express.static('client/build'));
