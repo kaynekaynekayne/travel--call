@@ -10,7 +10,7 @@ export const getContact=async()=>{
                 returnType:'JSON',
                 numOfRows:10,
                 pageNo:1,
-                // [process.env.COUNTRY_NAME]:'일본',
+                [process.env.COUNTRY_NAME]:'일본',
             }
         })
         return response;
