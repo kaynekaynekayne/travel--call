@@ -1,9 +1,14 @@
+import Pages from "./pages/pages";
+import {BrowserRouter as Router} from 'react-router-dom';
+
 
 
 function App() {
   return (
     <div className="App">
-      hahahaha
+      <Router>
+        <Pages />
+      </Router>
     </div>
   );
 }
