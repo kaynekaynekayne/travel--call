@@ -11,7 +11,7 @@ const Home = () => {
     },[]);
 
     return (
-        <div>{info.map(item=><h1>{item}</h1>)}</div>
+        <div>{info}</div>
     )
 }
 
