@@ -7,11 +7,11 @@ const Home = () => {
 
     useEffect(()=>{
         getLocalContact()
-        .then(items=>setInfo(items));
+        .then(items=>console.log(items));
     },[]);
 
     return (
-        <div>{info}</div>
+        <div>home</div>
     )
 }
 
