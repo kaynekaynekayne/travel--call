@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import { getLocalContact } from '../apis/localContact'
+import { getLocalContact } from '../apis/localContact.js'
 
 const Home = () => {
 

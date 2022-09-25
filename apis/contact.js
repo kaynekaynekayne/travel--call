@@ -1,4 +1,4 @@
-import instance from ".";
+import instance from "./index.js";
 
 export const getContact=async()=>{
     const response=await instance.get("/",{
