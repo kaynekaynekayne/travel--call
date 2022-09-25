@@ -25,6 +25,6 @@ if(process.env.NODE_ENV==='production'){
 }
 
 
-const PORT=4049;
+const PORT=process.env.PORT || 4049;
 
 app.listen(PORT, ()=>console.log(`server listening on ${PORT}`));
