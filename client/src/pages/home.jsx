@@ -1,14 +1,17 @@
-import React,{useEffect} from 'react'
+import React,{useState, useEffect} from 'react'
 import { getLocalContact } from '../apis/localContact'
 
 const Home = () => {
+
+    const [info, setInfo]=useState();
+
     useEffect(()=>{
         getLocalContact()
-        .then(console.log);
+        .then(items=>setInfo(items));
     },[]);
 
     return (
-        <div>homeeeeeeeeeeee</div>
+        <div>{info.map(item=><h1>{item}</h1>)}</div>
     )
 }
 
