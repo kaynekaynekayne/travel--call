@@ -4,8 +4,7 @@ import 'dotenv/config';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
-import router from './routes/router.js';
-
+import contactRouter from './routes/contactRouter.js';
 
 
 const __dirname = path.resolve();
@@ -20,7 +19,7 @@ app.use(cors({origin:true, credentials:true}));
 app.use(json());
 app.use(urlencoded({extended:false}));
 
-app.use("/",router);
+app.use("/contact",contactRouter);
 
 if(process.env.NODE_ENV==='production'){
     app.use(express.static('client/build'));
