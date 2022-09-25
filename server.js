@@ -4,6 +4,9 @@ import 'dotenv/config';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
+import router from './routes/router.js';
+
+
 
 const __dirname = path.resolve();
 const app=express();
@@ -17,7 +20,7 @@ app.use(cors({origin:true, credentials:true}));
 app.use(json());
 app.use(urlencoded({extended:false}));
 
-// app.get("/", (req,res)=>res.json({message:"haha"}));
+app.use("/",router);
 
 if(process.env.NODE_ENV==='production'){
     app.use(express.static('client/build'));
