@@ -1,7 +1,8 @@
-import instance from "./index.js";
+// import instance from "./index.js";
+import axios from 'axios';
 
 export const getContact=async()=>{
-    const response=await instance.get("/",{
+    const response=await axios.get("http://apis.data.go.kr/1262000/LocalContactService2/getLocalContactList2",{
         params:{
             serviceKey:process.env.OPEN_API_KEY,
             returnType:'JSON',
