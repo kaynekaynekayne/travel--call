@@ -1,14 +1,6 @@
-import React,{useState, useEffect} from 'react'
-import { getLocalContact } from '../apis/localContact.js'
+import React from 'react'
 
 const Home = () => {
-
-    const [info, setInfo]=useState();
-
-    useEffect(()=>{
-        getLocalContact()
-        .then(items=>console.log(items));
-    },[]);
 
     return (
         <div>home</div>
