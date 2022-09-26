@@ -12,5 +12,6 @@ export const GlobalStyles=createGlobalStyle`
         box-sizing:border-box;
         text-decoration: none;
         color:inherit;
+        list-style:none;
     }
 `;
