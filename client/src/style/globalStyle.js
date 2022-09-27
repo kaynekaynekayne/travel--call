@@ -4,8 +4,6 @@ export const GlobalStyles=createGlobalStyle`
 
     body{
         font-family: 'Noto Sans KR', sans-serif;
-        margin:1rem;
-
     }
 
     *{
@@ -15,9 +13,9 @@ export const GlobalStyles=createGlobalStyle`
         text-decoration: none;
         color:inherit;
         list-style:none;
-        img{
-            max-width:100%;
-            min-width:300px;
-        }
+        // img{
+        //     max-width:100%;
+        //     min-width:300px;
+        // }
     }
 `;

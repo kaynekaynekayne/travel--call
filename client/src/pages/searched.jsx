@@ -42,15 +42,25 @@ const Searched = () => {
         <div>
             {noResult ? <h4>결과 없음</h4> :
                 <MainStyle>
+                    <h1>{keyword.country_nm}</h1>
                     <img src={keyword.flag_download_url} />
-                    <h2>{keyword.country_nm}</h2>
                     {/* <button>담기</button> */}
                     <Content>
                         {ConvertStringToHTML(keyword.contact_remark)}
                     </Content>
                     <div>
-                        <img src={keyword.map_download_url} />
-                        <img src={keyword.dang_map_download_url}></img>
+                        {keyword.map_download_url && 
+                        <>
+                            <h4>지도</h4>
+                            <img src={keyword.map_download_url} />
+                        </>
+                        }
+                        {keyword.dang_map_download_url && 
+                        <>
+                            <h4>현지위험지도</h4>
+                            <img src={keyword.dang_map_download_url}></img>
+                        </>
+                        }
                     </div>
                 </MainStyle>
             }
@@ -60,13 +70,21 @@ const Searched = () => {
 
 const MainStyle=styled.div`
     text-align:center;
-    margin:3rem 0;
+    margin:2rem;
 
-    h2{
-        margin-bottom:2.5rem;
+    h1{
+        margin-bottom:1.5rem;
     }
     div{
         margin-top:2rem;
+        h4{
+            margin:1rem;
+        }
+    }
+    img{
+        min-width:300px;
+        max-width:80%;
+        box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.3);
     }
 `;
 
@@ -76,10 +94,11 @@ const Content=styled.section`
             h3{
                 margin-bottom:2rem;
             }
-            padding:1.5rem;
-            margin:2rem auto;
+            padding:2rem;
+            margin:3rem auto;
             background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
             box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.17);
+        }
     }
 `;
 
