@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import Search from './search';
 import styled from 'styled-components';
-import {Dialpad} from '@mui/icons-material';
+import {Dialpad, AccountCircle} from '@mui/icons-material';
 
 
 const Header = () => {
@@ -10,10 +10,8 @@ const Header = () => {
         <nav >
             <NavStyle>
                 <li><Link to="/"><Dialpad color="primary"/></Link></li>
-                <li>
-                    <Search />
-                    {/* <Link to="/user">픞</Link> */}
-                </li>
+                <li><Search /></li>
+                <li><Link to="/user"><AccountCircle color="disabled" fontSize="large"/></Link></li>
             </NavStyle>
         </nav>
     )
