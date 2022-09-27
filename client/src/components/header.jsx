@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <nav>
             <NavStyle>
-                <li><Link to="/">home</Link></li>
-                <li><Link to="/user">profile</Link></li>
+                <li><Link to="/">홈</Link></li>
+                <li><Link to="/user">픞</Link></li>
             </NavStyle>
         </nav>
     )
@@ -16,7 +16,7 @@ const Header = () => {
 const NavStyle=styled.ul`
     display:flex;
     justify-content:space-between;
-    padding:1rem;
+    padding:0.5rem;
 `;
 
 export default Header
