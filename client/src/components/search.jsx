@@ -29,6 +29,7 @@ const Search = () => {
                 value={country}
                 onChange={(e)=>setCountry(e.target.value)}
                 size="small"
+                sx={{width:'50vw'}}
                 endAdornment={
                     <InputAdornment position="start">
                         <Public />
