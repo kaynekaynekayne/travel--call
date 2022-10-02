@@ -42,9 +42,9 @@ const Searched = () => {
 
     return (
         <div>
-            {noResult ? <h4>결과 없음</h4> :
+            {noResult ? <h3>결과 없음</h3> :
                 <MainStyle>
-                    <h1>{keyword.country_nm}</h1>
+                    <h2>{keyword.country_nm}</h2>
                     <img src={keyword.flag_download_url} />
                     <br/>
                     <Button variant="outlined" startIcon={<AddBox />}>추가</Button>
@@ -75,7 +75,7 @@ const MainStyle=styled.div`
     text-align:center;
     margin:3rem;
 
-    h1{
+    h2{
         margin-bottom:1.5rem;
     }
     div{
