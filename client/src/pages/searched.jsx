@@ -3,6 +3,8 @@ import { useState } from 'react';
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact.js'
 import styled from 'styled-components';
+import {AddBox} from '@mui/icons-material';
+import {Button} from '@mui/material';
 
 const Searched = () => {
 
@@ -44,7 +46,8 @@ const Searched = () => {
                 <MainStyle>
                     <h1>{keyword.country_nm}</h1>
                     <img src={keyword.flag_download_url} />
-                    {/* <button>담기</button> */}
+                    <br/>
+                    <Button variant="outlined" startIcon={<AddBox />}>추가</Button>
                     <Content>
                         {ConvertStringToHTML(keyword.contact_remark)}
                     </Content>
@@ -70,7 +73,7 @@ const Searched = () => {
 
 const MainStyle=styled.div`
     text-align:center;
-    margin:2rem;
+    margin:3rem;
 
     h1{
         margin-bottom:1.5rem;
