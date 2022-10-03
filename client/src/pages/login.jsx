@@ -16,7 +16,7 @@ const Login = () => {
         e.preventDefault();
         try{
             await login(email, password);
-            navigate("/");
+            navigate("/user");
         }catch(err){
             toast.error(err.message);
         }
