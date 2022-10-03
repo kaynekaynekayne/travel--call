@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import contactRouter from './routes/contactRouter.js';
-
+import postRouter from './routes/postRouter.js';
 
 const __dirname = path.resolve();
 const app=express();
@@ -20,6 +20,7 @@ app.use(json());
 app.use(urlencoded({extended:false}));
 
 app.use("/api/contact",contactRouter);
+app.use("/api/post",postRouter);
 
 if(process.env.NODE_ENV==='production'){
     app.use(express.static('client/build'));
