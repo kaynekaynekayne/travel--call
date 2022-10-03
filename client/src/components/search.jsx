@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {useNavigate} from 'react-router-dom';
-import styled from 'styled-components';
 import {Public} from '@mui/icons-material';
 import {OutlinedInput, InputAdornment} from '@mui/material';
 
@@ -39,13 +38,5 @@ const Search = () => {
         </form>
     )
 };
-
-const InputStyle=styled.input`
-    width:100%;
-    height:3rem;
-    // margin:4rem 0;
-    padding:1rem;
-    border:1px solid black;
-`;
 
 export default Search

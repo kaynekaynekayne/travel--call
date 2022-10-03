@@ -2,8 +2,9 @@ import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyles=createGlobalStyle`
 
-    body{
+    html,body{
         font-family: 'Noto Sans KR', sans-serif;
+        height:100%;
     }
 
     *{
@@ -13,9 +14,9 @@ export const GlobalStyles=createGlobalStyle`
         text-decoration: none;
         color:inherit;
         list-style:none;
-        // img{
-        //     max-width:100%;
-        //     min-width:300px;
-        // }
+        border:none;
+        img{
+            margin:0.5rem 0 1.5rem;
+        }
     }
 `;

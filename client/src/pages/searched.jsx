@@ -3,40 +3,52 @@ import { useState } from 'react';
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact.js'
 import styled from 'styled-components';
-import {AddBox} from '@mui/icons-material';
+import {AddBox, PlaylistAdd} from '@mui/icons-material';
 import {Button} from '@mui/material';
+import {ToastContainer, toast} from 'material-react-toastify';
+import 'material-react-toastify/dist/ReactToastify.css';
+import { useAuthContext } from '../hooks/useAuthContext.js';
 
 const Searched = () => {
 
     const [keyword, setKeyword]=useState("");
     const [noResult, setNoResult]=useState(false);
+    const {user}=useAuthContext();
 
-    let params=useParams();
-    let {country}=params;
+    const params=useParams();
+    const {country}=params;
+
+    const handleClick=()=>{
+        if(!user) {
+            toast.warning("회원만 이용할 수 있습니다")
+        }else{
+            console.log("담기")
+        }
+    };
 
     useEffect(()=>{
-        getContactLists();
+        const getContactLists=async()=>{
+            try{
+                const response=await getLocalContact(country)
+                if(response.data.length===0){
+                    setNoResult(true);
+                } else{
+                    setKeyword(response.data[0]);
+                    setNoResult(false);
+                }
+            }catch(err){
+                console.log(err.message);
+            }
+        }
+
+        if(country){
+            getContactLists();
+        }
     },[country]);
 
-    const getContactLists=async()=>{
-        try{
-            const response=await getLocalContact(country)
-            if(response.data.length===0){
-                setNoResult(true);
-            } else{
-                setKeyword(response.data[0]);
-                setNoResult(false);
-            }
-        }catch(err){
-            console.log(err.message);
-        }
-    }
-
     let ConvertStringToHTML = function(text) {
-        console.log(text);
         const arr=text && text.split('<h3').map(item=>'<div><h3'+item+'</div>').slice(1);
         console.log(arr);
-        // return <div dangerouslySetInnerHTML={{__html:text}}></div>;
         return <div dangerouslySetInnerHTML={{__html:arr && arr.join('')}}></div>;
     };
 
@@ -45,9 +57,8 @@ const Searched = () => {
             {noResult ? <h3>결과 없음</h3> :
                 <MainStyle>
                     <h2>{keyword.country_nm}</h2>
-                    <img src={keyword.flag_download_url} />
-                    <br/>
-                    <Button variant="outlined" startIcon={<AddBox />}>추가</Button>
+                    <img src={keyword.flag_download_url} alt="flag"/><br/>
+                    <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
                     <Content>
                         {ConvertStringToHTML(keyword.contact_remark)}
                     </Content>
@@ -55,18 +66,19 @@ const Searched = () => {
                         {keyword.map_download_url && 
                         <>
                             <h4>지도</h4>
-                            <img src={keyword.map_download_url} />
+                            <img src={keyword.map_download_url} alt="map"/>
                         </>
                         }
                         {keyword.dang_map_download_url && 
                         <>
                             <h4>현지위험지도</h4>
-                            <img src={keyword.dang_map_download_url}></img>
+                            <img src={keyword.dang_map_download_url} alt="dangerous map"></img>
                         </>
                         }
                     </div>
                 </MainStyle>
             }
+            <ToastContainer />
         </div>
     )
 }

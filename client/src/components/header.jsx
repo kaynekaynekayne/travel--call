@@ -1,11 +1,20 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Search from './search';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Header = () => {
 
+    const {user, logout}=useAuthContext();
+    const navigate=useNavigate();
+
+    const handleLogout=async()=>{
+        await logout();
+        navigate("/login");
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{padding:'1rem'}}>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light p-3 border-bottom" >
             <div className="container-fluid">
                 <Search />
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +22,7 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
-                        {false ? ( //user가 있으면
+                        {user ? (
                             <>
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="/">
@@ -29,7 +38,7 @@ const Header = () => {
                                     <span 
                                         className="nav-link"
                                         style={{cursor:'pointer'}}
-                                        // onClick={handleLogout}
+                                        onClick={handleLogout}
                                     >로그아웃</span>
                                 </li>
                             </>

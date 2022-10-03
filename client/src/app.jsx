@@ -1,17 +1,17 @@
 import Pages from "./pages/pages";
 import {BrowserRouter as Router} from 'react-router-dom';
 import Header from "./components/header";
-import Search from "./components/search";
-
+import { AuthContextProvider } from "./context/authContext";
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        {/* <Search /> */}
-        <Pages />
+        <AuthContextProvider>
+          <Header />
+          <Pages />
+        </AuthContextProvider>
       </Router>
     </div>
   );
