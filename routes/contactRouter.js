@@ -3,6 +3,6 @@ import { getContacts } from '../controllers/contactController.js';
 
 const contactRouter=express.Router();
 
-contactRouter.get("/api", getContacts);
+contactRouter.get("/", getContacts);
 
 export default contactRouter;
