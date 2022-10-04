@@ -86,7 +86,7 @@ const Searched = () => {
 
 const MainStyle=styled.div`
     text-align:center;
-    margin:4rem 2rem;
+    margin:4rem 2.5rem;
 
     h2{
         margin-bottom:1.5rem;
