@@ -9,5 +9,5 @@ export const getContacts=(req,res)=>{
         res.header("Access-Control-Allow-Headers","X-Requested-With");
         res.status(200).json(response.data);
     })
-    .catch(err=>res.status(400).json({message:err.message}))
+    .catch(err=>res.status(400).json({msg:err.message}))
 }
