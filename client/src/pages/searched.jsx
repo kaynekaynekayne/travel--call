@@ -15,26 +15,27 @@ const Searched = () => {
 
     const [contactInfo, setContactInfo]=useState("");
     const [noResult, setNoResult]=useState(false);
-    const {user}=useAuthContext();
-    console.log(contactInfo)
-    //const userInfo={email:user.email, contactInfo}
 
+    const {user}=useAuthContext();
 
     const params=useParams();
     const {country}=params;
-    console.log(country)
 
     //클릭하면 담는 용
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
                 const response=await addPost({email:user.email, contactInfo});
-                console.log(response);
+                if(!response.error){
+                    console.log("성공적으로 담음")
+                } else{
+                    console.log(response.error);
+                }
             } else{
                 toast.warning("회원만 이용할 수 있습니다")
             }
         }catch(err){
-            console.log(err);
+            console.log(err.message);
         }
     };
 

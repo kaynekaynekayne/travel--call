@@ -18,16 +18,12 @@ export const addPosts=async(req,res)=>{
                     {new:true}
                 )
             } else{
-                return res.status(400).json({message:"이미 목록에 저장되어 있습니다"})
+                return res.status(400).json({error:"이미 목록에 저장되어 있습니다"})
             }
         } else await Post.create({email, addedPosts:[contactInfo]});
 
         return res.status(200).json({message:"목록에 추가되었습니다"})
-        // const post=await Post.create({
-        //     email,
-        //     addedPosts:contactInfo,
-        // })
-        // return res.status(200).json(post);
+        
     }catch(err){
         res.status(400).json({error:err.message});
     }
