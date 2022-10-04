@@ -1,9 +1,10 @@
 import instance from "./index.js";
+import axios from 'axios';
 
 export const getContact=async(country)=>{
     let response;
     try{
-        response=await instance.get("/",{
+        response=await axios.get("http://apis.data.go.kr/1262000/LocalContactService2/getLocalContactList2/",{
             params:{
                 serviceKey:process.env.OPEN_API_KEY,
                 returnType:'JSON',
@@ -12,7 +13,7 @@ export const getContact=async(country)=>{
                 [process.env.COUNTRY_NAME]:country,
             }
         })
-        return response.data;
+        return response;
     }catch(err){
         console.log(err);
     }

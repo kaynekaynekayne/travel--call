@@ -22,7 +22,7 @@ const Searched = () => {
 
     const params=useParams();
     const {country}=params;
-    console.log(params)
+    console.log(country)
 
     //클릭하면 담는 용
     const handleClick=async()=>{
