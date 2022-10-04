@@ -28,11 +28,8 @@ const Searched = () => {
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
-                console.log("담기")
-                // const response=await addPost({email:user.email, contactInfo});
-                // const json=await response.json();
-
-                // if(response.ok) console.log("haha");
+                const response=await addPost({email:user.email, contactInfo});
+                console.log(response);
             } else{
                 toast.warning("회원만 이용할 수 있습니다")
             }
