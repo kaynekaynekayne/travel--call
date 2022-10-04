@@ -12,7 +12,7 @@ export const getContact=async(country)=>{
                 [process.env.COUNTRY_NAME]:country,
             }
         })
-        return response;
+        return response.data;
     }catch(err){
         console.log(err);
     }
