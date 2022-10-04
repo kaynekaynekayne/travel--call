@@ -19,7 +19,7 @@ app.use(cors({origin:true, credentials:true}));
 app.use(json());
 app.use(urlencoded({extended:false}));
 
-app.use("/contact",contactRouter);
+app.use("/api/contact",contactRouter);
 
 if(process.env.NODE_ENV==='production'){
     app.use(express.static('client/build'));

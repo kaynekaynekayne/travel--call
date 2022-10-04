@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useState } from 'react';
 import {useParams} from 'react-router-dom';
-import { getLocalContact } from '../apis/localContact.js'
+import { getLocalContact } from '../apis/localContact/localContact.js';
 import styled from 'styled-components';
 import {AddBox, PlaylistAdd} from '@mui/icons-material';
 import {Button} from '@mui/material';
@@ -17,6 +17,7 @@ const Searched = () => {
 
     const params=useParams();
     const {country}=params;
+    console.log(params)
 
     const handleClick=()=>{
         if(!user) {
