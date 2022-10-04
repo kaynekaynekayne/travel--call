@@ -1,5 +1,4 @@
-import React,{useEffect} from 'react'
-import { useState } from 'react';
+import React,{useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact/localContact.js';
 import styled from 'styled-components';
@@ -8,25 +7,40 @@ import {Button} from '@mui/material';
 import {ToastContainer, toast} from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 import { useAuthContext } from '../hooks/useAuthContext.js';
+import { addPost } from '../apis/post/post.js';
+import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
+import axios from 'axios';
 
 const Searched = () => {
 
-    const [keyword, setKeyword]=useState("");
+    const [contactInfo, setContactInfo]=useState("");
     const [noResult, setNoResult]=useState(false);
     const {user}=useAuthContext();
+    console.log(contactInfo)
+    //const userInfo={email:user.email, contactInfo}
+
 
     const params=useParams();
     const {country}=params;
     console.log(params)
 
-    const handleClick=()=>{
-        if(!user) {
-            toast.warning("회원만 이용할 수 있습니다")
-        }else{
-            console.log("담기")
+    //클릭하면 담는 용
+    const handleClick=async()=>{
+        try{
+            if(user && contactInfo){
+                const response=await addPost({email:user.email, contactInfo});
+                const json=await response.json();
+
+                if(response.ok) console.log("haha");
+            } else{
+                toast.warning("회원만 이용할 수 있습니다")
+            }
+        }catch(err){
+            console.log(err);
         }
     };
 
+    //현지연락처 받는용
     useEffect(()=>{
         const getContactLists=async()=>{
             try{
@@ -34,7 +48,7 @@ const Searched = () => {
                 if(response.data.length===0){
                     setNoResult(true);
                 } else{
-                    setKeyword(response.data[0]);
+                    setContactInfo(response.data[0]);
                     setNoResult(false);
                 }
             }catch(err){
@@ -47,33 +61,30 @@ const Searched = () => {
         }
     },[country]);
 
-    let ConvertStringToHTML = function(text) {
-        const arr=text && text.split('<h3').map(item=>'<div><h3'+item+'</div>').slice(1);
-        console.log(arr);
-        return <div dangerouslySetInnerHTML={{__html:arr && arr.join('')}}></div>;
-    };
+
 
     return (
         <div>
             {noResult ? <h3>결과 없음</h3> :
                 <MainStyle>
-                    <h2>{keyword.country_nm}</h2>
-                    <img src={keyword.flag_download_url} alt="flag"/><br/>
+                    <h2>{contactInfo.country_nm}</h2>
+                    <img src={contactInfo.flag_download_url} alt="flag"/><br/>
                     <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
+                    //컴포넌트로 빼기?
                     <Content>
-                        {ConvertStringToHTML(keyword.contact_remark)}
+                        {ConvertStringToHTML(contactInfo.contact_remark)}
                     </Content>
                     <div>
-                        {keyword.map_download_url && 
+                        {contactInfo.map_download_url && 
                         <>
                             <h4>지도</h4>
-                            <img src={keyword.map_download_url} alt="map"/>
+                            <img src={contactInfo.map_download_url} alt="map"/>
                         </>
                         }
-                        {keyword.dang_map_download_url && 
+                        {contactInfo.dang_map_download_url && 
                         <>
                             <h4>현지위험지도</h4>
-                            <img src={keyword.dang_map_download_url} alt="dangerous map"></img>
+                            <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
                         </>
                         }
                     </div>

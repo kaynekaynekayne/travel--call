@@ -7,6 +7,4 @@ export const getLocalContact=async(country)=>{
         params:{country}
     }
     );
-    console.log(response)
-    return response.data;
-};
+}
