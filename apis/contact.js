@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getContact=async(country)=>{
     let response;
     try{
-        response=await axios.get("http://apis.data.go.kr/1262000/LocalContactService2/getLocalContactList2",{
+        response=await instance.get("/",{
             params:{
                 serviceKey:process.env.OPEN_API_KEY,
                 returnType:'JSON',
