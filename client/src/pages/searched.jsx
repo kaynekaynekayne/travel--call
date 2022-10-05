@@ -29,7 +29,7 @@ const Searched = () => {
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
-                const response=await addPost({email:user.email, contactInfo});
+                const response=await addPost({email:user.email, contactInfo, uid:user.uid});
                 if(!response.error){
                     console.log(response);
                     console.log("성공적으로 담음");
