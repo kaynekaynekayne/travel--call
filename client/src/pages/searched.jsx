@@ -11,6 +11,8 @@ import { addPost } from '../apis/post/post.js';
 import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
 import axios from 'axios';
 
+import {usePostContext} from '../hooks/usePostContext'
+
 const Searched = () => {
 
     const [contactInfo, setContactInfo]=useState("");
@@ -21,13 +23,17 @@ const Searched = () => {
     const params=useParams();
     const {country}=params;
 
+    const {dispatch}=usePostContext();
+
     //클릭하면 저장하는 용
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
                 const response=await addPost({email:user.email, contactInfo});
                 if(!response.error){
-                    console.log("성공적으로 담음")
+                    console.log(response);
+                    console.log("성공적으로 담음");
+                    // dispatch({type:'ADD_POST', payload:}) 보류
                 } else{
                     console.log(response.error);
                 }
@@ -35,7 +41,7 @@ const Searched = () => {
                 toast.warning("회원만 이용할 수 있습니다")
             }
         }catch(err){
-            console.log(err);
+            console.dir(err);
         }
     };
 
