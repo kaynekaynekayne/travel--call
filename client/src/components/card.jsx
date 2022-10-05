@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Card = () => {
+const Card = ({post}) => {
     return (
-        <div>card</div>
+        <div>
+            <h3>{post.country_nm}</h3>
+        </div>
     )
 }
 
