@@ -19,7 +19,7 @@ const UserList = () => {
             }
         }
 
-        if(user){
+        if(user && uid){
             fetchLists();
         }
 
