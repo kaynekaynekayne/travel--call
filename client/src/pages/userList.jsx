@@ -12,8 +12,8 @@ const UserList = () => {
         const fetchLists=async()=>{
             const response=await getAllLists(uid);
             if(!response.error){
-                console.log(response);
                 console.log("성공적으로 받아옴");
+                console.log(response.data);
             } else{
                 console.log(response.error);
             }
