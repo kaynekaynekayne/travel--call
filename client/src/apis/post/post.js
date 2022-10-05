@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export const getAllLists=async(uid)=>{
     try{
-        // const response=await instance.get(`/api/post/list/${uid}`);
-        // return response;
+        const response=await instance.get(`/api/post/list/${uid}`);
+        return response;
     }catch(err){
         throw new Error(err)
     }

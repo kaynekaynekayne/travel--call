@@ -4,6 +4,6 @@ import { addPosts, getPosts } from '../controllers/postController.js';
 const postRouter=express.Router();
 
 postRouter.post("/add", addPosts);
-postRouter.get("/list/:id", getPosts);
+postRouter.get("/list/:uid", getPosts);
 
 export default postRouter;

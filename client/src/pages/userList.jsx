@@ -10,13 +10,13 @@ const UserList = () => {
 
     useEffect(()=>{
         const fetchLists=async()=>{
-            // const response=await getAllLists(uid);
-            // if(!response.error){
-            //     console.log(response);
-            //     console.log("성공적으로 받아옴");
-            // } else{
-            //     console.log(response.error);
-            // }
+            const response=await getAllLists(uid);
+            if(!response.error){
+                console.log(response);
+                console.log("성공적으로 받아옴");
+            } else{
+                console.log(response.error);
+            }
         }
 
         if(user){
