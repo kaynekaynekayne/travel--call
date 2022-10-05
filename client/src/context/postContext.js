@@ -6,6 +6,8 @@ export const reducer=(state,action)=>{
     switch(action.type){
         case 'ADD_POST':
             return {posts:[action.payload, ...state.posts]}
+        case 'GET_POSTS':
+            return {posts:action.payload}
         default:
             return state;
     }

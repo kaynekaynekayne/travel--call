@@ -21,7 +21,7 @@ export const addPosts=async(req,res)=>{
 
         } else await Post.create({email, addedPosts:[contactInfo], uid});
 
-        return res.status(200).json({message:"목록에 추가되었습니다"})
+        return res.status(200).json({message:"목록에 추가되었습니다", posts:user.addedPosts})
         
     }catch(err){
         return res.status(400).json(err);
