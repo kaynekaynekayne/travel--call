@@ -13,7 +13,7 @@ export const getAllLists=async(uid)=>{
 export const addPost=async({email, contactInfo, uid,}={})=>{
     console.log("im in addpost in apis folder client")
     try{
-        const userInfo={email, contactInfo}
+        const userInfo={email, contactInfo, uid}
         const response=await instance.post("/api/post/add",
             userInfo,
             {
