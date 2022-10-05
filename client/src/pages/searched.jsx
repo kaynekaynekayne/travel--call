@@ -21,7 +21,7 @@ const Searched = () => {
     const params=useParams();
     const {country}=params;
 
-    //클릭하면 담는 용
+    //클릭하면 저장하는 용
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
@@ -35,7 +35,7 @@ const Searched = () => {
                 toast.warning("회원만 이용할 수 있습니다")
             }
         }catch(err){
-            console.log(err.message);
+            console.log(err);
         }
     };
 

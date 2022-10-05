@@ -25,6 +25,6 @@ export const addPosts=async(req,res)=>{
         return res.status(200).json({message:"목록에 추가되었습니다"})
         
     }catch(err){
-        res.status(400).json({error:err.message});
+        res.status(400).json(err);
     }
 }
