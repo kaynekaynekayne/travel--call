@@ -32,8 +32,6 @@ const UserList = () => {
             fetchLists();
         }
 
-        return ()=>fetchLists();
-
     },[user]);
 
     return (
