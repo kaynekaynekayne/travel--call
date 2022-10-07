@@ -32,7 +32,9 @@ const UserList = () => {
             fetchLists();
         }
 
-    },[user, dispatch]);
+        return ()=>fetchLists();
+
+    },[user]);
 
     return (
         <div>
