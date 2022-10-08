@@ -31,9 +31,10 @@ const Searched = () => {
             if(user && contactInfo){
                 const response=await addPost({email:user.email, contactInfo, uid:user.uid});
                 if(!response.error){
-                    console.log(response);
+                    const posts=response.data.post.addedPosts;
+                    console.log(posts.length);
                     console.log("성공적으로 담음");
-                    // dispatch({type:'ADD_POST', payload:contactInfo}) //보류
+                    dispatch({type:'ADD_POST', payload:posts[posts.length-1]}) //보류
                 } else{
                     console.log(response.error);
                 }
