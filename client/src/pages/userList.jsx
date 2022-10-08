@@ -11,7 +11,7 @@ const UserList = () => {
     const {uid}=user;
 
     const {posts, dispatch}=usePostContext();
-    console.log(posts.map(post=>post.country_nm));
+    console.log(posts && posts.map(post=>post.country_nm));
     //dispatch로 인해서 posts가 바뀔 것이고 
     //그 posts를 map으로 화면에 뿌릴 것임
 
