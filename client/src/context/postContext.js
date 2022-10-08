@@ -9,7 +9,7 @@ export const reducer=(state,action)=>{
         case 'GET_POSTS':
             return {posts:action.payload}
         case 'DELETE_POST':
-            // return {posts:state.posts.filter(post=>post.)}
+            return {posts:state.posts.filter(post=>post.country_nm!==action.payload.country_nm)}
         default:
             return state;
     }
