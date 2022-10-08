@@ -18,6 +18,7 @@ const Card = ({post}) => {
             
             if(!response.error){
             //     dispatch({type:"DELETE_POST", payload:response.data.posts})//이상..
+                dispatch({type:'GET_POSTS', payload:response.data.posts})
 
             }
         }catch(err){
