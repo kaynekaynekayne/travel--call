@@ -34,9 +34,9 @@ export const addPosts=async(req,res)=>{
 export const getPosts=async(req,res)=>{
     try{
         const {uid}=req.params;
-        const user=await Post.findOne({uid}).sort({createdAt:-1});
+        const user=await Post.findOne({uid});
         if(user){
-            return res.status(200).json({msg:"성공", posts:user.addedPosts})
+            return res.status(200).json({msg:"성공", posts:user.addedPosts.sort({createdAt:-1})})
         } else return res.status(400).json({error:"일치하는 유저를 찾을 수 없습니다"})
     }catch(err){
         return res.status(400).json(err);
