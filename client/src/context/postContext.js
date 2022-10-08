@@ -18,6 +18,7 @@ export const reducer=(state,action)=>{
 export const PostContextProvider=({children})=>{
 
     const [state, dispatch]=useReducer(reducer, {posts:null});
+    console.log(state);
 
     return(
         <PostContext.Provider value={{...state, dispatch}}>
