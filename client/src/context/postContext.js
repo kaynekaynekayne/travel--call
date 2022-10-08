@@ -8,6 +8,8 @@ export const reducer=(state,action)=>{
             return {posts:[action.payload, ...state.posts]}
         case 'GET_POSTS':
             return {posts:action.payload}
+        case 'DELETE_POST':
+            // return {posts:state.posts.filter(post=>post.)}
         default:
             return state;
     }

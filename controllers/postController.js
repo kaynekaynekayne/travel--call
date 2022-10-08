@@ -42,3 +42,29 @@ export const getPosts=async(req,res)=>{
         return res.status(400).json(err);
     }
 };
+
+export const removePost=async(req,res)=>{
+    try{
+        const {email, post}=req.body;
+        const user=await Post.findOne({email});
+
+        if(user){
+            const {addedPosts}=user;
+            const postIndex=addedPosts.findIndex(({country_nm})=>(country_nm===post.country_nm));
+            if(!postIndex) res.status(400).json({error:"포스트를 찾을 수 없습니다"})
+
+            addedPosts.splice(postIndex,1);
+
+            await Post.findByIdAndUpdate(
+                user._id,
+                {
+                    addedPosts,
+                },
+                {new:true}
+            )
+            return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
+        }
+    }catch(err){
+        return res.status(400).json({error:err});
+    }
+};
