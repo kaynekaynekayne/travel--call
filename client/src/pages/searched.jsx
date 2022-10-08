@@ -33,7 +33,7 @@ const Searched = () => {
                 if(!response.error){
                     console.log(response);
                     console.log("성공적으로 담음");
-                    // dispatch({type:'ADD_POST', payload:}) 보류
+                    dispatch({type:'ADD_POST', payload:contactInfo}) //보류
                 } else{
                     console.log(response.error);
                 }
