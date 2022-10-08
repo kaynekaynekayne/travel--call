@@ -65,8 +65,8 @@ export const removePost=async(req,res)=>{
                 },
                 {new:true}
             )
-            return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
-            // return res.status(200).json({msg:"성공적으로 제거되었습니다", deletedPost}); 
+            // return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
+            return res.status(200).json({msg:"성공적으로 제거되었습니다", deletedPost}); 
         }
     }catch(err){
         return res.status(400).json({error:err});

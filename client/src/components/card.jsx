@@ -17,8 +17,8 @@ const Card = ({post}) => {
             console.log(response);
             
             if(!response.error){
-                // dispatch({type:"DELETE_POST", payload:response.data.deletedPost})
-                dispatch({type:'GET_POSTS', payload:response.data.posts})
+                dispatch({type:"DELETE_POST", payload:response.data.deletedPost})
+                // dispatch({type:'GET_POSTS', payload:response.data.posts})
 
             }
         }catch(err){
