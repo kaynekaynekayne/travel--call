@@ -14,7 +14,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { ConvertStringToHTML } from '../utils/converStringToHTML';
 
 const EachCard = ({post}) => {
-    
     const {
         country_nm,
         contact_remark,
@@ -25,11 +24,8 @@ const EachCard = ({post}) => {
 
     const handleDelete=async()=>{
         try{
-            const response=await deleteList({email:user.email, post});
-            
-            if(!response.error){
-                dispatch({type:"DELETE_POST", payload:response.data.deletedPost})
-            }
+            const response=await deleteList({email:user.email, post});            
+            dispatch({type:"DELETE_POST", payload:response.data.deletedPost})
         }catch(err){
             console.log(err);
         }

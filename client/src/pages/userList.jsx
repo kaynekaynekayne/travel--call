@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect} from 'react'
 import { useAuthContext } from '../hooks/useAuthContext';
 import { getAllLists } from '../apis/post/post';
 import { usePostContext } from '../hooks/usePostContext';
@@ -12,18 +12,14 @@ const UserList = () => {
     const {uid}=user;
     const {posts, dispatch}=usePostContext();
     
-    const [loading, setLoading]=useState(false);
-
     useEffect(()=>{
         const fetchLists=async()=>{
-            setLoading(true);
-            const response=await getAllLists(uid);
-            if(!response.error){
+            try{
+                const response=await getAllLists(uid);
                 dispatch({type:'GET_POSTS', payload:response.data.posts})
-            } else{
-                console.log(response.error);
+            }catch(err){
+                console.log(err.message);
             }
-            setLoading(false);
         }
 
         if(user && uid){
@@ -34,10 +30,9 @@ const UserList = () => {
 
     return (
         <div>
-            {loading ? <Loading /> :
-                posts && posts.map(post=>
+            {posts ? posts.map(post=>
                     <EachCard key={post.country_iso_alp2} post={post}/>
-                )
+                ) : <Loading />
             }
         </div>
     )
