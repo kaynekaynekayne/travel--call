@@ -2,15 +2,13 @@ import React,{useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact/localContact.js';
 import styled from 'styled-components';
-import {AddBox, PlaylistAdd} from '@mui/icons-material';
+import {AddBox} from '@mui/icons-material';
 import {Button} from '@mui/material';
 import {ToastContainer, toast} from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 import { useAuthContext } from '../hooks/useAuthContext.js';
 import { addPost } from '../apis/post/post.js';
 import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
-import axios from 'axios';
-
 import {usePostContext} from '../hooks/usePostContext'
 
 const Searched = () => {

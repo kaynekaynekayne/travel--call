@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { deleteList } from '../apis/post/post';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { usePostContext } from '../hooks/usePostContext';

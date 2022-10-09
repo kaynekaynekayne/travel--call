@@ -1,5 +1,4 @@
 import instance from "../index";
-import axios from 'axios';
 
 export const addPost=async({email, contactInfo, uid,}={})=>{
     try{
