@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import { useAuthContext } from '../hooks/useAuthContext';
 import { getAllLists } from '../apis/post/post';
 import { usePostContext } from '../hooks/usePostContext';
-import Card from '../components/card';
+import EachCard from '../components/card';
 
 
 const UserList = () => {
@@ -37,7 +37,7 @@ const UserList = () => {
     return (
         <div>
             {posts && posts.map(post=>
-                <Card key={post.country_iso_alp2} post={post}/>
+                <EachCard key={post.country_iso_alp2} post={post}/>
             )}
         </div>
     )

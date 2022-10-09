@@ -1,9 +1,25 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { deleteList } from '../apis/post/post';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { usePostContext } from '../hooks/usePostContext';
+import {
+    Typography,
+    IconButton,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { ConvertStringToHTML } from '../utils/converStringToHTML';
 
-const Card = ({post}) => {
+const EachCard = ({post}) => {
+    
+    const {
+        country_nm,
+        contact_remark,
+        continent_nm,
+    }=post; 
 
     const {dispatch}=usePostContext();
     const {user}=useAuthContext();
@@ -18,8 +34,6 @@ const Card = ({post}) => {
             
             if(!response.error){
                 dispatch({type:"DELETE_POST", payload:response.data.deletedPost})
-                // dispatch({type:'GET_POSTS', payload:response.data.posts})
-
             }
         }catch(err){
             console.log(err);
@@ -27,11 +41,25 @@ const Card = ({post}) => {
     }
 
     return (
-        <div>
-            <h3>{post.country_nm}</h3>
-            <div onClick={handleDelete}>x</div>
+        <div style={{display:'flex', justifyContent:'space-between'}} >
+            <Accordion sx={{width:'100%'}}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Typography>{country_nm}</Typography>
+                </AccordionSummary>
+
+                <AccordionDetails>
+                    {ConvertStringToHTML(contact_remark)}
+                </AccordionDetails>
+            </Accordion>
+            <IconButton onClick={handleDelete}>
+                <DeleteIcon />
+            </IconButton>
         </div>
     )
 }
 
-export default Card;
+export default EachCard;

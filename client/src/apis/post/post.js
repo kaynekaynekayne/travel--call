@@ -2,7 +2,6 @@ import instance from "../index";
 import axios from 'axios';
 
 export const addPost=async({email, contactInfo, uid,}={})=>{
-    console.log("im in addpost in apis folder client")
     try{
         const userInfo={email, contactInfo, uid}
         const response=await instance.post("/api/post/add",
@@ -14,7 +13,6 @@ export const addPost=async({email, contactInfo, uid,}={})=>{
                 }
             }
         );
-        console.log(response);
         return response;
     }catch(err){
         throw new Error(err)

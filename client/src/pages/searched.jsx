@@ -34,7 +34,7 @@ const Searched = () => {
                     const posts=response.data.post.addedPosts;
                     console.log(posts.length);
                     console.log("성공적으로 담음");
-                    dispatch({type:'ADD_POST', payload:posts[posts.length-1]}) //보류
+                    dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
                 } else{
                     console.log(response.error);
                 }
