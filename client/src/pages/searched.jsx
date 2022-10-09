@@ -1,16 +1,16 @@
 import React,{useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact/localContact.js';
+import { useAuthContext } from '../hooks/useAuthContext.js';
+import {usePostContext} from '../hooks/usePostContext'
+import { addPost } from '../apis/post/post.js';
+import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
+import Loading from '../components/loading.jsx';
 import styled from 'styled-components';
 import {AddBox} from '@mui/icons-material';
 import {Button} from '@mui/material';
 import {ToastContainer, toast} from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
-import { useAuthContext } from '../hooks/useAuthContext.js';
-import { addPost } from '../apis/post/post.js';
-import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
-import {usePostContext} from '../hooks/usePostContext'
-import Loading from '../components/loading.jsx';
 
 const Searched = () => {
 
@@ -70,12 +70,11 @@ const Searched = () => {
     return (
         <div>
             {loading ? <Loading /> : (
-                noResult ? <h3>결과 없음</h3> :
+                noResult ? <h3>결과 없음</h3> : contactInfo && 
                     <MainStyle>
                         <h2>{contactInfo.country_nm}</h2>
                         <img src={contactInfo.flag_download_url} alt="flag"/><br/>
                         <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
-                        //컴포넌트로 빼기?
                         <Content>
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>

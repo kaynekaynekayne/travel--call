@@ -18,7 +18,6 @@ const EachCard = ({post}) => {
     const {
         country_nm,
         contact_remark,
-        continent_nm,
     }=post; 
 
     const {dispatch}=usePostContext();

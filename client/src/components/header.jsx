@@ -2,12 +2,10 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 import Search from './search';
 import { useAuthContext } from '../hooks/useAuthContext';
-import { usePostContext } from '../hooks/usePostContext';
 
 const Header = () => {
 
     const {user, logout}=useAuthContext();
-    const {dispatch}=usePostContext();
     const navigate=useNavigate();
 
     const handleLogout=async()=>{

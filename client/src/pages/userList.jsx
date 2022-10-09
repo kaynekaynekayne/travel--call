@@ -26,7 +26,7 @@ const UserList = () => {
             fetchLists();
         }
 
-    },[user, dispatch]);
+    },[user, dispatch, uid]);
 
     return (
         <div>
