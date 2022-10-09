@@ -30,6 +30,7 @@ const Searched = () => {
                 const response=await addPost({email:user.email, contactInfo, uid:user.uid});
                 if(!response.error){
                     const posts=response.data.post.addedPosts;
+                    console.log(posts[posts.length-1]);
                     dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
                 } else{
                     console.log(response.error);
