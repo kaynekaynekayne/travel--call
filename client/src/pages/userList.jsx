@@ -11,17 +11,11 @@ const UserList = () => {
     const {uid}=user;
 
     const {posts, dispatch}=usePostContext();
-    console.log(posts && posts.map(post=>post.country_nm));
-    //dispatch로 인해서 posts가 바뀔 것이고 
-    //그 posts를 map으로 화면에 뿌릴 것임
 
     useEffect(()=>{
         const fetchLists=async()=>{
             const response=await getAllLists(uid);
             if(!response.error){
-                console.log("성공적으로 받아옴");
-                console.log(response.data);
-                //dispatch 자리
                 dispatch({type:'GET_POSTS', payload:response.data.posts})
             } else{
                 console.log(response.error);

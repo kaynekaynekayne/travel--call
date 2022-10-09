@@ -25,15 +25,12 @@ const Searched = () => {
 
     const {dispatch}=usePostContext();
 
-    //클릭하면 저장하는 용
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
                 const response=await addPost({email:user.email, contactInfo, uid:user.uid});
                 if(!response.error){
                     const posts=response.data.post.addedPosts;
-                    console.log(posts.length);
-                    console.log("성공적으로 담음");
                     dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
                 } else{
                     console.log(response.error);
@@ -46,7 +43,6 @@ const Searched = () => {
         }
     };
 
-    //현지연락처 받는용
     useEffect(()=>{
         const getContactLists=async()=>{
             try{

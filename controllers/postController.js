@@ -53,7 +53,6 @@ export const removePost=async(req,res)=>{
             const postIndex=addedPosts.findIndex(({country_nm})=>(country_nm===post.country_nm));
             if(!postIndex) res.status(400).json({error:"포스트를 찾을 수 없습니다"})
 
-            //addedPosts[postIndex]를 보내서 filter를 이용해서 걔를 지우게 하는건?
             const deletedPost=addedPosts[postIndex];
 
             addedPosts.splice(postIndex,1);
@@ -65,7 +64,6 @@ export const removePost=async(req,res)=>{
                 },
                 {new:true}
             )
-            // return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
             return res.status(200).json({msg:"성공적으로 제거되었습니다", deletedPost}); 
         }
     }catch(err){

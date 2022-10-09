@@ -24,13 +24,9 @@ const EachCard = ({post}) => {
     const {dispatch}=usePostContext();
     const {user}=useAuthContext();
 
-    console.log(post);
-    console.log(user);
-
     const handleDelete=async()=>{
         try{
             const response=await deleteList({email:user.email, post});
-            console.log(response);
             
             if(!response.error){
                 dispatch({type:"DELETE_POST", payload:response.data.deletedPost})

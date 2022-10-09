@@ -11,7 +11,6 @@ const Search = () => {
         e.preventDefault();
         navigate("/searched/"+country);
         setCountry("");
-        console.log(country);
     };
 
     return (
