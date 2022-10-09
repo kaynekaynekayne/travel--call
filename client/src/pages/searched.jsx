@@ -10,17 +10,18 @@ import { useAuthContext } from '../hooks/useAuthContext.js';
 import { addPost } from '../apis/post/post.js';
 import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
 import {usePostContext} from '../hooks/usePostContext'
+import Loading from '../components/loading.jsx';
 
 const Searched = () => {
-
-    const [contactInfo, setContactInfo]=useState("");
-    const [noResult, setNoResult]=useState(false);
-
-    const {user}=useAuthContext();
 
     const params=useParams();
     const {country}=params;
 
+    const [contactInfo, setContactInfo]=useState("");
+    const [noResult, setNoResult]=useState(false);
+    const [loading, setLoading]=useState(false);
+
+    const {user}=useAuthContext();
     const {dispatch}=usePostContext();
 
     const handleClick=async()=>{
@@ -44,12 +45,15 @@ const Searched = () => {
     useEffect(()=>{
         const getContactLists=async()=>{
             try{
+                setLoading(true);
                 const response=await getLocalContact(country)
                 if(response.data.length===0){
                     setNoResult(true);
+                    setLoading(false);
                 } else{
                     setContactInfo(response.data[0]);
                     setNoResult(false);
+                    setLoading(false);
                 }
             }catch(err){
                 console.log(err.message);
@@ -65,30 +69,32 @@ const Searched = () => {
 
     return (
         <div>
-            {noResult ? <h3>결과 없음</h3> :
-                <MainStyle>
-                    <h2>{contactInfo.country_nm}</h2>
-                    <img src={contactInfo.flag_download_url} alt="flag"/><br/>
-                    <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
-                    //컴포넌트로 빼기?
-                    <Content>
-                        {ConvertStringToHTML(contactInfo.contact_remark)}
-                    </Content>
-                    <div>
-                        {contactInfo.map_download_url && 
-                        <>
-                            <h4>지도</h4>
-                            <img src={contactInfo.map_download_url} alt="map"/>
-                        </>
-                        }
-                        {contactInfo.dang_map_download_url && 
-                        <>
-                            <h4>현지위험지도</h4>
-                            <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
-                        </>
-                        }
-                    </div>
-                </MainStyle>
+            {loading ? <Loading /> : (
+                noResult ? <h3>결과 없음</h3> :
+                    <MainStyle>
+                        <h2>{contactInfo.country_nm}</h2>
+                        <img src={contactInfo.flag_download_url} alt="flag"/><br/>
+                        <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
+                        //컴포넌트로 빼기?
+                        <Content>
+                            {ConvertStringToHTML(contactInfo.contact_remark)}
+                        </Content>
+                        <div>
+                            {contactInfo.map_download_url && 
+                            <>
+                                <h4>지도</h4>
+                                <img src={contactInfo.map_download_url} alt="map"/>
+                            </>
+                            }
+                            {contactInfo.dang_map_download_url && 
+                            <>
+                                <h4>현지위험지도</h4>
+                                <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
+                            </>
+                            }
+                        </div>
+                    </MainStyle>
+                )
             }
             <ToastContainer />
         </div>
