@@ -1,4 +1,3 @@
-import instance from "./index.js";
 import axios from 'axios';
 
 export const getContact=async(country)=>{
