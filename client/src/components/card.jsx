@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { deleteList } from '../apis/post/post';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { usePostContext } from '../hooks/usePostContext';
@@ -18,10 +18,6 @@ const EachCard = ({post}) => {
         country_nm,
         contact_remark,
     }=post; 
-    
-    useEffect(()=>{
-        console.log(post)
-    },[]);
 
     const {dispatch}=usePostContext();
     const {user}=useAuthContext();
