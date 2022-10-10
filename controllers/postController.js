@@ -33,15 +33,20 @@ export const addPosts=async(req,res)=>{
 };
 
 export const getPosts=async(req,res)=>{
-    try{
-        const {uid}=req.params;
-        const user=await Post.findOne({uid});
-        if(user){
-            return res.status(200).json({msg:"성공", posts:user.addedPosts})
-        } else return res.status(400).json({error:"일치하는 유저를 찾을 수 없습니다"})
-    }catch(err){
-        return res.status(400).json(err);
-    }
+    const {uid}=req.params;
+    const user=await Post.findOne({uid});
+    if(user){
+        return res.status(200).json({msg:"성공", posts:user.addedPosts})
+    } else return res.status(400).json({error:"일치하는 유저를 찾을 수 없습니다"})
+    // try{
+    //     const {uid}=req.params;
+    //     const user=await Post.findOne({uid});
+    //     if(user){
+    //         return res.status(200).json({msg:"성공", posts:user.addedPosts})
+    //     } else return res.status(400).json({error:"일치하는 유저를 찾을 수 없습니다"})
+    // }catch(err){
+    //     return res.status(400).json(err);
+    // }
 };
 
 export const removePost=async(req,res)=>{
