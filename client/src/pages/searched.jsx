@@ -30,7 +30,7 @@ const Searched = () => {
                 const response=await addPost({email:user.email, contactInfo, uid:user.uid});
                 const posts=await response.data.post.addedPosts;
                 console.log(posts[posts.length-1]);
-                dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
+                // dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
             } else{
                 toast.warning("회원만 이용할 수 있습니다")
             }

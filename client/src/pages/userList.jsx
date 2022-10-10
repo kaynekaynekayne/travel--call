@@ -16,7 +16,7 @@ const UserList = () => {
         const fetchLists=async()=>{
             try{
                 const response=await getAllLists(uid);
-                dispatch({type:'GET_POSTS', payload:response.data.posts})
+                // dispatch({type:'GET_POSTS', payload:response.data.posts})
             }catch(err){
                 console.log(err);
             }
