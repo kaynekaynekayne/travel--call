@@ -17,7 +17,8 @@ export const addPosts=async(req,res)=>{
                     },
                     {new:true}
                 )
-                return res.status(200).json({msg:"목록에 추가되었습니다", post})
+                // return 
+                res.status(200).json({msg:"목록에 추가되었습니다", post})
             } else return res.status(400).json({error:"이미 목록에 저장되어 있습니다"})
 
         } else {
