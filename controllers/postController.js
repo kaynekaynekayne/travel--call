@@ -53,7 +53,7 @@ export const removePost=async(req,res)=>{
             const postIndex=addedPosts.findIndex(({country_nm})=>(country_nm===post.country_nm));
             if(!postIndex) res.status(400).json({error:"포스트를 찾을 수 없습니다"})
 
-            const deletedPost=addedPosts[postIndex];
+            // const deletedPost=addedPosts[postIndex];
 
             addedPosts.splice(postIndex,1);
 
@@ -64,7 +64,7 @@ export const removePost=async(req,res)=>{
                 },
                 {new:true}
             )
-            return res.status(200).json({msg:"성공적으로 제거되었습니다", deletedPost}); 
+            return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
         }
     }catch(err){
         return res.status(400).json({error:err});

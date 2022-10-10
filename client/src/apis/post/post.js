@@ -41,7 +41,7 @@ export const deleteList=async({email, post}={})=>{
         );
         return response;
     }catch(err){
-        throw new Error(err);
+        throw new Error(err.error);
     }
 
 }
