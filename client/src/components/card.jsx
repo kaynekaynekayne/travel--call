@@ -18,6 +18,7 @@ const EachCard = ({post}) => {
         country_nm,
         contact_remark,
     }=post; 
+    console.log(post)
 
     const {dispatch}=usePostContext();
     const {user}=useAuthContext();
@@ -33,6 +34,7 @@ const EachCard = ({post}) => {
     }
 
     return (
+        post ?   
         <div style={{display:'flex', justifyContent:'space-between'}} >
             <Accordion sx={{width:'100%'}}>
                 <AccordionSummary
@@ -51,6 +53,7 @@ const EachCard = ({post}) => {
                 <DeleteIcon />
             </IconButton>
         </div>
+        : <div>결과 없음</div>
     )
 }
 
