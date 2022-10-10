@@ -26,7 +26,7 @@ const EachCard = ({post}) => {
         try{
             const response=await deleteList({email:user.email, post});
             console.log(response);            
-            // dispatch({type:"DELETE_POST", payload:response.data.posts})
+            dispatch({type:"DELETE_POST", payload:response.data.posts})
         }catch(err){
             console.log(err);
         }
