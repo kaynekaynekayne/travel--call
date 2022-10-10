@@ -14,7 +14,8 @@ export const addPost=async({email, contactInfo, uid,}={})=>{
         );
         return response;
     }catch(err){
-        throw new Error(err)
+        return err;
+        // throw new Error(err)
     }
 };
 
@@ -24,7 +25,8 @@ export const getAllLists=async(uid)=>{
         console.log(response)
         return response;
     }catch(err){
-        throw new Error(err)
+        return err;
+        // throw new Error(err)
     }
 };  
 
