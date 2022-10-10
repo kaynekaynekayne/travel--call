@@ -20,9 +20,6 @@ const EachCard = ({post}) => {
     }=post; 
     console.log(post)
 
-    useEffect(()=>{
-        console.log(post);
-    },[])
     const {dispatch}=usePostContext();
     const {user}=useAuthContext();
 
@@ -37,7 +34,6 @@ const EachCard = ({post}) => {
     }
 
     return (
-        post!==null ?
         <div style={{display:'flex', justifyContent:'space-between'}} >
             <Accordion sx={{width:'100%'}}>
                 <AccordionSummary
@@ -55,7 +51,7 @@ const EachCard = ({post}) => {
             <IconButton onClick={handleDelete}>
                 <DeleteIcon />
             </IconButton>
-        </div> : <div>결과없음</div>
+        </div>
     )
 }
 
