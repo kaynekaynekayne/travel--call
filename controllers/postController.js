@@ -51,8 +51,7 @@ export const removePost=async(req,res)=>{
         if(user){
             const {addedPosts}=user;
             const postIndex=addedPosts.findIndex(({country_nm})=>(country_nm===post.country_nm));
-            // if(!postIndex) res.status(400).json({error:"포스트를 찾을 수 없습니다"})
-            // const deletedPost=addedPosts[postIndex];
+
             if(addedPosts.length===1){
                 await Post.findByIdAndUpdate(
                     user._id,
@@ -62,10 +61,9 @@ export const removePost=async(req,res)=>{
                     {new:true}
                 )
                 return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
-                // await Post.findOneAndDelete({email})
-                // return res.status(200).json({msg:"성공적으로 제거되었습니다"}); 
+            
             } else{
-                addedPosts.splice(postIndex,1);
+                const deletedPost=addedPosts.splice(postIndex,1);
                 await Post.findByIdAndUpdate(
                     user._id,
                     {
@@ -73,7 +71,7 @@ export const removePost=async(req,res)=>{
                     },
                     {new:true}
                 )
-                return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
+                return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
             }
 
         }
