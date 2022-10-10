@@ -1,67 +1,36 @@
 import Post from "../models/Post.js";
 
+
 export const addPosts=async(req,res)=>{
     try{
         const {email, contactInfo, uid}=req.body;
-        //db에 저장된 유저가 있는지 (이메일로 확인)
+
         const user=await Post.findOne({email});
-        //유저가 있다면
 
         if(user){
-            const {addedPosts} = user;
-            //리스트에 저장되어있는 영화 확인
-            const alreadySavedPosts=addedPosts.find(({country_nm})=>({country_nm}===contactInfo.country_nm));
-            //저장되어 있지 않은 영화라면 새롭게 업데이트
+            const {addedPosts}=user;
+            const alreadySavedPosts=addedPosts.find(({country_nm})=>(country_nm===contactInfo.country_nm));
             if(!alreadySavedPosts){
-                await Post.findByIdAndUpdate(
+                const post=await Post.findByIdAndUpdate(
                     user._id,
                     {
                         addedPosts:[...user.addedPosts, contactInfo],
                     },
                     {new:true}
-                );
-                //이미 저장된 영화라면 메세지 보내줌
-            } else return res.status(400).json({msg:"movie already added to the liked lists."})
-        
+                )
+                return res.status(200).json({msg:"목록에 추가되었습니다", post})
+            } else return res.status(400).json({error:"이미 목록에 저장되어 있습니다"})
+
+        } else {
+            const post=await Post.create({email, addedPosts:[contactInfo], uid});
+            return res.status(200).json({msg:"목록에 추가되었습니다",post})
         }
-        //db에유저가 없다면 
-        else await Post.create({email, addedPosts:[contactInfo], uid});
-        return res.status(200).json({msg:"movie added successfully"})
+        
+        
     }catch(err){
-        return res.status(400).json({msg:"error adding movie"});
+        return res.status(400).json({error:err.message});
     }
 };
-
-// export const addPosts=async(req,res)=>{
-//     try{
-//         const {email, contactInfo, uid}=req.body;
-
-//         const user=await Post.findOne({email});
-
-//         if(user){
-//             const {addedPosts}=user;
-//             const alreadySavedPosts=addedPosts.find(({country_nm})=>(country_nm===contactInfo.country_nm));
-//             if(!alreadySavedPosts){
-//                 const post=await Post.findByIdAndUpdate(
-//                     user._id,
-//                     {
-//                         addedPosts:[...user.addedPosts, contactInfo],
-//                     },
-//                     {new:true}
-//                 )
-//                 return res.status(200).json({msg:"목록에 추가되었습니다", post})
-//             } else return res.status(400).json({error:"이미 목록에 저장되어 있습니다"})
-
-//         } else {
-//             const post=await Post.create({email, addedPosts:[contactInfo], uid});
-//             return res.status(200).json({msg:"목록에 추가되었습니다",post})
-//         }
-        
-        
-//     }catch(err){
-//         return res.status(400).json({error:err.message});
-//     }
-// };
 
 export const getPosts=async(req,res)=>{
     try{
