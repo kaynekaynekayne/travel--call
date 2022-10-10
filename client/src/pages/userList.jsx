@@ -13,8 +13,6 @@ const UserList = () => {
     const {posts, dispatch}=usePostContext();
     
     useEffect(()=>{
-        console.log(posts);
-        console.log(posts && posts.length);
         const fetchLists=async()=>{
             try{
                 const response=await getAllLists(uid);

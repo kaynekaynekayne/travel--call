@@ -27,7 +27,7 @@ export const addPosts=async(req,res)=>{
         
         
     }catch(err){
-        return res.status(400).json(err);
+        return res.status(400).json({error:err.message});
     }
 };
 
@@ -61,29 +61,6 @@ export const removePost=async(req,res)=>{
                 {new:true}
             )
             return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
-
-            // if(addedPosts.length===1){
-            //     await Post.findByIdAndUpdate(
-            //         user._id,
-            //         {
-            //             addedPosts:[],
-            //         },
-            //         {new:true}
-            //     )
-            //     return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
-            
-            // } else{
-            //     const deletedPost=addedPosts.splice(postIndex,1);
-            //     await Post.findByIdAndUpdate(
-            //         user._id,
-            //         {
-            //             addedPosts,
-            //         },
-            //         {new:true}
-            //     )
-            //     return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
-            // }
-
         }
     }catch(err){
         return res.status(400).json({error:err});
