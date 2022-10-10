@@ -21,6 +21,7 @@ export const addPost=async({email, contactInfo, uid,}={})=>{
 export const getAllLists=async(uid)=>{
     try{
         const response=await instance.get(`/api/post/list/${uid}`);
+        console.log(response)
         return response;
     }catch(err){
         throw new Error(err)
