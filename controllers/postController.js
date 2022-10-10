@@ -52,27 +52,37 @@ export const removePost=async(req,res)=>{
             const {addedPosts}=user;
             const postIndex=addedPosts.findIndex(({country_nm})=>(country_nm===post.country_nm));
 
-            if(addedPosts.length===1){
-                await Post.findByIdAndUpdate(
-                    user._id,
-                    {
-                        addedPosts:[],
-                    },
-                    {new:true}
-                )
-                return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
+            const deletedPost=addedPosts.splice(postIndex,1);
+            await Post.findByIdAndUpdate(
+                user._id,
+                {
+                    addedPosts,
+                },
+                {new:true}
+            )
+            return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
+
+            // if(addedPosts.length===1){
+            //     await Post.findByIdAndUpdate(
+            //         user._id,
+            //         {
+            //             addedPosts:[],
+            //         },
+            //         {new:true}
+            //     )
+            //     return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
             
-            } else{
-                const deletedPost=addedPosts.splice(postIndex,1);
-                await Post.findByIdAndUpdate(
-                    user._id,
-                    {
-                        addedPosts,
-                    },
-                    {new:true}
-                )
-                return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
-            }
+            // } else{
+            //     const deletedPost=addedPosts.splice(postIndex,1);
+            //     await Post.findByIdAndUpdate(
+            //         user._id,
+            //         {
+            //             addedPosts,
+            //         },
+            //         {new:true}
+            //     )
+            //     return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:deletedPost}); 
+            // }
 
         }
     }catch(err){
