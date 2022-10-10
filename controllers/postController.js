@@ -54,8 +54,16 @@ export const removePost=async(req,res)=>{
             // if(!postIndex) res.status(400).json({error:"포스트를 찾을 수 없습니다"})
             // const deletedPost=addedPosts[postIndex];
             if(addedPosts.length===1){
-                await Post.findOneAndDelete({email})
-                return res.status(200).json({msg:"성공적으로 제거되었습니다"}); 
+                await Post.findByIdAndUpdate(
+                    user._id,
+                    {
+                        addedPosts:[],
+                    },
+                    {new:true}
+                )
+                return res.status(200).json({msg:"성공적으로 제거되었습니다", posts:addedPosts}); 
+                // await Post.findOneAndDelete({email})
+                // return res.status(200).json({msg:"성공적으로 제거되었습니다"}); 
             } else{
                 addedPosts.splice(postIndex,1);
                 await Post.findByIdAndUpdate(
