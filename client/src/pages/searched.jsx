@@ -27,11 +27,15 @@ const Searched = () => {
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
-                const response=await addPost({email:user.email, contactInfo, uid:user.uid});
-                console.log(response);
-                const posts=await response.data.post.addedPosts;
-                console.log(posts[posts.length-1]);
-                toast.success(response.data.msg);
+                const resp=await addPost({email:user.email, contactInfo, uid:user.uid});
+                console.log(resp);
+                if(resp.statusText==="OK"){
+                    toast.success(resp.data.msg);
+                }else{
+                    toast.warning(resp.response.data.error);
+                }
+                // const posts=await resp.data.post.addedPosts;
+                // console.log(posts[posts.length-1]);
                 // dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
             } else{
                 toast.warning("회원만 이용할 수 있습니다")

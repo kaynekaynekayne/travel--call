@@ -14,8 +14,6 @@ const UserList = () => {
     const {posts, dispatch}=usePostContext();
 
     const [loading, setLoading]=useState(true);
-    console.log(loading);
-    console.log(posts);
 
     useEffect(()=>{
         const fetchLists=async()=>{
@@ -43,9 +41,10 @@ const UserList = () => {
     return (
         <div>
             {loading ? <Loading /> : 
-                !posts.length==0 ? posts.map(post=>
+                !posts || posts.length==0 ? <p>목록이 없습니다</p>
+                : posts.map(post=>
                     <EachCard key={post.country_iso_alp2} post={post}/>
-                ) : <p>목록이 없습니다</p>
+                )
             }
             <ToastContainer />
         </div>
