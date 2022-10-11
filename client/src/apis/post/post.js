@@ -15,7 +15,7 @@ export const addPost=async({email, contactInfo, uid,}={})=>{
         return response;
     }catch(err){
         return err;
-        // throw new Error(err)
+        // throw new Error(err.response.data)
     }
 };
 

@@ -38,9 +38,9 @@ export const getPosts=async(req,res)=>{
         const user=await Post.findOne({uid});
         if(user){
             return res.status(200).json({msg:"성공", posts:user.addedPosts})
-        } else return res.status(400).json({msg:"일치하는 유저를 찾을 수 없습니다"})
+        } else return res.status(400).json({msg:"이 아이디로 아직 추가된 목록이 없습니다"})
     }catch(err){
-        return res.status(400).json({err:"포스트를 받아오는데에 문제 있음"});
+        return res.status(400).json({err});
     }
 };
 

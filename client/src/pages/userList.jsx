@@ -1,23 +1,34 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useAuthContext } from '../hooks/useAuthContext';
 import { getAllLists } from '../apis/post/post';
 import { usePostContext } from '../hooks/usePostContext';
 import EachCard from '../components/card';
 import Loading from '../components/loading';
-
+import {ToastContainer, toast} from 'material-react-toastify';
+import 'material-react-toastify/dist/ReactToastify.css';
 
 const UserList = () => {
 
     const {user}=useAuthContext();
     const {uid}=user;
     const {posts, dispatch}=usePostContext();
-    
+
+    const [loading, setLoading]=useState(true);
+    console.log(loading);
+    console.log(posts);
+
     useEffect(()=>{
         const fetchLists=async()=>{
-            try{
-                const response=await getAllLists(uid);
-                console.log(response);
-                dispatch({type:'GET_POSTS', payload:response.data.posts})
+            try{                
+                setLoading(true);
+                const resp=await getAllLists(uid);
+                console.log(resp);
+                if(resp.statusText==="OK"){
+                    await dispatch({type:'GET_POSTS', payload:resp.data.posts})
+                } else{
+                    toast.warning(resp.response.data.msg);
+                }
+                setLoading(false);
             }catch(err){
                 console.log(err);
             }
@@ -31,10 +42,12 @@ const UserList = () => {
 
     return (
         <div>
-            {posts ? posts.map(post=>
+            {loading ? <Loading /> : 
+                !posts.length==0 ? posts.map(post=>
                     <EachCard key={post.country_iso_alp2} post={post}/>
-                ) : <Loading />
+                ) : <p>목록이 없습니다</p>
             }
+            <ToastContainer />
         </div>
     )
 }
