@@ -22,7 +22,6 @@ const Searched = () => {
     const [loading, setLoading]=useState(false);
 
     const {user}=useAuthContext();
-    const {dispatch}=usePostContext();
 
     const handleClick=async()=>{
         try{
@@ -34,14 +33,11 @@ const Searched = () => {
                 }else{
                     toast.warning(resp.response.data.error);
                 }
-                // const posts=await resp.data.post.addedPosts;
-                // console.log(posts[posts.length-1]);
-                // dispatch({type:'ADD_POST', payload:posts[posts.length-1]})
             } else{
                 toast.warning("회원만 이용할 수 있습니다")
             }
         }catch(err){
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -77,7 +73,11 @@ const Searched = () => {
                     <MainStyle>
                         <h2>{contactInfo.country_nm}</h2>
                         <img src={contactInfo.flag_download_url} alt="flag"/><br/>
-                        <Button onClick={handleClick} variant="outlined" startIcon={<AddBox />}>추가</Button>
+                        <Button 
+                            onClick={handleClick} 
+                            variant="outlined" 
+                            startIcon={<AddBox />}
+                        >추가</Button>
                         <Content>
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
