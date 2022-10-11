@@ -38,7 +38,7 @@ export const getPosts=async(req,res)=>{
         const user=await Post.findOne({uid});
         if(user){
             return res.status(200).json({msg:"성공", posts:user.addedPosts})
-        } else return res.status(400).json({msg:"이 아이디로 아직 추가된 목록이 없습니다"})
+        } else return res.status(400).json({msg:"나라를 추가해주세요!"})
     }catch(err){
         return res.status(400).json({err});
     }
