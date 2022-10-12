@@ -14,7 +14,7 @@ const UserList = () => {
     const {posts, dispatch}=usePostContext();
 
     const [loading, setLoading]=useState(true);
-
+    
     useEffect(()=>{
         const fetchLists=async()=>{
             try{                
@@ -41,7 +41,7 @@ const UserList = () => {
     return (
         <div>
             {loading ? <Loading /> : 
-                !posts || posts.length==0 ? <p>목록이 없습니다</p>
+                !posts || posts.length===0 ? <p>목록이 없습니다</p>
                 : posts.map(post=>
                     <EachCard key={post.country_iso_alp2} post={post}/>
                 )
