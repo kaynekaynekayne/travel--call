@@ -4,8 +4,6 @@ export const PostContext=createContext();
 
 export const reducer=(state,action)=>{
     switch(action.type){
-        // case 'ADD_POST':
-        //     return {posts:[...state.posts, action.payload]}
         case 'GET_POSTS':
             return {posts:action.payload}
         case 'DELETE_POST':
