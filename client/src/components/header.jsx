@@ -34,7 +34,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/user">
-                                        리스트
+                                        {user.email && user.email.split("@")[0]}님의 리스트
                                     </Link>
                                 </li>
                                 <li className="nav-item">
