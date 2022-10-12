@@ -40,7 +40,7 @@ export const getPosts=async(req,res)=>{
             return res.status(200).json({msg:"성공적으로 목록을 받아왔습니다", posts:user.addedPosts})
         } else{
             await Post.create({email, addedPosts:[]});
-            return res.status(200).json({msg:"성공적으로 목록을 받아왔습니다"})
+            return res.status(200).json({msg:"성공적으로 목록을 받아왔습니다!"})
         }
     }catch(err){
         return res.status(400).json({err});

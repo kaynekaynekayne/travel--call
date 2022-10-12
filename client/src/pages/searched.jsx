@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import { getLocalContact } from '../apis/localContact/localContact.js';
 import { useAuthContext } from '../hooks/useAuthContext.js';
-import {usePostContext} from '../hooks/usePostContext'
 import { addPost } from '../apis/post/post.js';
 import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
 import Loading from '../components/loading.jsx';
@@ -37,7 +36,7 @@ const Searched = () => {
                 toast.warning("회원만 이용할 수 있습니다")
             }
         }catch(err){
-            // console.log(err);
+            console.log(err);
         }
     };
 
@@ -81,20 +80,12 @@ const Searched = () => {
                         <Content>
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
-                        <div>
-                            {/* {contactInfo.map_download_url && 
-                            <>
-                                <h4>지도</h4>
-                                <img src={contactInfo.map_download_url} alt="map"/>
-                            </>
-                            } */}
-                            {contactInfo.dang_map_download_url && 
-                            <>
+                        {contactInfo.dang_map_download_url && 
+                            <div>
                                 <h5>현지위험지도</h5>
                                 <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
-                            </>
-                            }
-                        </div>
+                            </div>
+                        }
                     </MainStyle>
                 )
             }
