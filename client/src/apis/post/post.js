@@ -1,8 +1,8 @@
 import instance from "../index";
 
-export const addPost=async({email, contactInfo, uid,}={})=>{
+export const addPost=async({email, contactInfo}={})=>{
     try{
-        const userInfo={email, contactInfo, uid}
+        const userInfo={email, contactInfo}
         const response=await instance.post("/api/post/add",
             userInfo,
             {
@@ -19,9 +19,9 @@ export const addPost=async({email, contactInfo, uid,}={})=>{
     }
 };
 
-export const getAllLists=async(uid)=>{
+export const getAllLists=async(email)=>{
     try{
-        const response=await instance.get(`/api/post/list/${uid}`);
+        const response=await instance.get(`/api/post/list/${email}`);
         console.log(response)
         return response;
     }catch(err){

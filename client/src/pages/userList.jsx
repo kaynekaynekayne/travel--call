@@ -10,7 +10,7 @@ import 'material-react-toastify/dist/ReactToastify.css';
 const UserList = () => {
 
     const {user}=useAuthContext();
-    const {uid}=user;
+    const {email}=user;
     const {posts, dispatch}=usePostContext();
 
     const [loading, setLoading]=useState(true);
@@ -19,7 +19,7 @@ const UserList = () => {
         const fetchLists=async()=>{
             try{                
                 setLoading(true);
-                const resp=await getAllLists(uid);
+                const resp=await getAllLists(email);
                 console.log(resp);
                 if(resp.statusText==="OK"){
                     await dispatch({type:'GET_POSTS', payload:resp.data.posts})
@@ -32,11 +32,11 @@ const UserList = () => {
             }
         }
 
-        if(user && uid){
+        if(user && email){
             fetchLists();
         }
 
-    },[user, dispatch, uid]);
+    },[user, dispatch, email]);
 
     return (
         <div>

@@ -3,7 +3,7 @@ import Post from "../models/Post.js";
 
 export const addPosts=async(req,res)=>{
     try{
-        const {email, contactInfo, uid}=req.body;
+        const {email, contactInfo}=req.body;
 
         const user=await Post.findOne({email});
 
@@ -22,7 +22,7 @@ export const addPosts=async(req,res)=>{
             } else return res.status(400).json({error:"이미 목록에 저장되어 있습니다"})
 
         } else {
-            const post=await Post.create({email, addedPosts:[contactInfo], uid});
+            const post=await Post.create({email, addedPosts:[contactInfo]});
             return res.status(200).json({msg:"목록에 추가되었습니다",post})
         }
         
@@ -34,11 +34,14 @@ export const addPosts=async(req,res)=>{
 
 export const getPosts=async(req,res)=>{
     try{
-        const {uid}=req.params;
-        const user=await Post.findOne({uid});
+        const {email}=req.params;
+        const user=await Post.findOne({email});
         if(user){
-            return res.status(200).json({msg:"성공", posts:user.addedPosts})
-        } else return res.status(400).json({msg:"나라를 추가해주세요!"})
+            return res.status(200).json({msg:"성공적으로 목록을 받아왔습니다", posts:user.addedPosts})
+        } else{
+            await Post.create({email, addedPosts:[]});
+            return res.status(200).json({msg:"성공적으로 목록을 받아왔습니다"})
+        }
     }catch(err){
         return res.status(400).json({err});
     }
@@ -67,3 +70,5 @@ export const removePost=async(req,res)=>{
         return res.status(400).json({error:err});
     }
 };
+
+

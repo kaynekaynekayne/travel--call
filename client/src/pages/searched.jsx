@@ -26,7 +26,7 @@ const Searched = () => {
     const handleClick=async()=>{
         try{
             if(user && contactInfo){
-                const resp=await addPost({email:user.email, contactInfo, uid:user.uid});
+                const resp=await addPost({email:user.email, contactInfo});
                 console.log(resp);
                 if(resp.statusText==="OK"){
                     toast.success(resp.data.msg);
@@ -82,15 +82,15 @@ const Searched = () => {
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
                         <div>
-                            {contactInfo.map_download_url && 
+                            {/* {contactInfo.map_download_url && 
                             <>
                                 <h4>지도</h4>
                                 <img src={contactInfo.map_download_url} alt="map"/>
                             </>
-                            }
+                            } */}
                             {contactInfo.dang_map_download_url && 
                             <>
-                                <h4>현지위험지도</h4>
+                                <h5>현지위험지도</h5>
                                 <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
                             </>
                             }
