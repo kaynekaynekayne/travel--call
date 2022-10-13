@@ -4,9 +4,8 @@ import Home from './home';
 import Login from './login';
 import Searched from './searched';
 import Signup from './signup';
-import { useAuthContext } from '../hooks/useAuthContext';
 import UserList from './userList';
-
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Pages = () => {
 
@@ -21,6 +20,7 @@ const Pages = () => {
             <Route path="/searched/:country" element={<Searched />} />
         </Routes>
     )
-}
+};
+
 
 export default Pages;

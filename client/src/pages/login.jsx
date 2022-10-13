@@ -23,35 +23,36 @@ const Login = () => {
     }
 
     return (
-        <div className='container h-100'>
-            <div className='row align-items-center h-100'>
-
-                <form onSubmit={handleSubmit} className='col mx-auto'>
-                    <div className="col-lg-10 mb-3 ">
+        <div className="container">
+            <form onSubmit={handleSubmit} >
+                <div style={{height:'80vh'}} className="row justify-content-center align-items-center">
+                    <div className="col pl-3 pr-0 ">
                         <label htmlFor="staticEmail2" className="visually-hidden">이메일</label>
                         <input 
                             type="email" 
-                            className="form-control" 
+                            className="form-control rounded-0" 
                             id="staticEmail2" 
-                            placeholder="Email"
+                            placeholder="이메일"
+                            required
                             onChange={(e)=>setEmail(e.target.value)}    
                         />
                     </div>
-                    <div className="col-lg-10 mb-3">
+                    <div className="col p-0">
                         <label htmlFor="inputPassword2" className="visually-hidden">비밀번호</label>
                         <input 
                             type="password" 
-                            className="form-control" 
+                            className="form-control rounded-0" 
                             id="inputPassword2" 
-                            placeholder="Password"
+                            placeholder="비밀번호"
+                            required
                             onChange={(e)=>setPassword(e.target.value)}    
                         />
                     </div>
-                    <div className="col-lg-10 mb-3 justify-content-center">
-                        <button type="submit" className="btn btn-primary mb-3">로그인</button>
+                    <div className="col-auto d-grid">
+                        <button type="submit" className="btn btn-primary">로그인</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
             <ToastContainer />
         </div>
     )

@@ -76,7 +76,7 @@ const Searched = () => {
                             onClick={handleClick} 
                             variant="outlined" 
                             startIcon={<AddBox />}
-                        >추가</Button>
+                        >저장</Button>
                         <Content>
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
