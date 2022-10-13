@@ -83,7 +83,7 @@ const Searched = () => {
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
                         {contactInfo.dang_map_download_url && 
-                            <div>
+                            <div className="map-section">
                                 <h5>현지위험지도</h5>
                                 <img
                                     className="poster" 
@@ -105,24 +105,23 @@ const MainStyle=styled.div`
     align-items:center;
     text-align:center;
     margin:4rem 2.5rem;
-    
+
     h2{
         margin-bottom:1.5rem;
-    }
-    div{
-        margin-top:2rem;
-        h4{
-            margin:1rem;
-        }
     }
 
     .flag{
         width:300px;
         box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.3);
     }
-    .poster{
-        max-width:75%;
+
+    .map-section{
+        margin-bottom:2rem;
+        img{
+            max-width:75%;
+        }
     }
+
 `;
 
 const Content=styled.section`   
