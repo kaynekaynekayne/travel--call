@@ -71,7 +71,9 @@ const Searched = () => {
                 noResult ? <h3>결과 없음</h3> : contactInfo && 
                     <MainStyle>
                         <h2>{contactInfo.country_nm}</h2>
-                        <img src={contactInfo.flag_download_url} alt="flag"/><br/>
+                        <img 
+                            className='flag'
+                            src={contactInfo.flag_download_url} alt="flag"/><br/>
                         <Button 
                             onClick={handleClick} 
                             variant="outlined" 
@@ -83,7 +85,9 @@ const Searched = () => {
                         {contactInfo.dang_map_download_url && 
                             <div>
                                 <h5>현지위험지도</h5>
-                                <img src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
+                                <img
+                                    className="poster" 
+                                    src={contactInfo.dang_map_download_url} alt="dangerous map"></img>
                             </div>
                         }
                     </MainStyle>
@@ -107,10 +111,13 @@ const MainStyle=styled.div`
             margin:1rem;
         }
     }
-    img{
-        min-width:300px;
-        max-width:80%;
+
+    .flag{
+        width:300px;
         box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.3);
+    }
+    .poster{
+        max-width:80%;
     }
 `;
 
