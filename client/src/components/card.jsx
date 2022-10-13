@@ -34,8 +34,8 @@ const EachCard = ({post}) => {
     }
 
     return (
-        <div style={{display:'flex', justifyContent:'space-between'}} >
-            <Accordion sx={{width:'100%'}}>
+        <div className="d-flex justify-content-evenly">
+            <Accordion sx={{width:'90%'}}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -44,7 +44,7 @@ const EachCard = ({post}) => {
                     <Typography>{country_nm}</Typography>
                 </AccordionSummary>
 
-                <AccordionDetails>
+                <AccordionDetails > 
                     {ConvertStringToHTML(contact_remark)}
                 </AccordionDetails>
             </Accordion>
