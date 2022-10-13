@@ -25,32 +25,30 @@ const Login = () => {
     return (
         <div className="container">
             <form onSubmit={handleSubmit} >
-                <div style={{height:'80vh'}} className="row justify-content-center align-items-center">
-                    <div className="col pl-3 pr-0 ">
+                <div style={{height:'80vh'}} className="d-flex flex-column justify-content-center align-items-center">
+                    <div className="form-group mb-2">
                         <label htmlFor="staticEmail2" className="visually-hidden">이메일</label>
                         <input 
                             type="email" 
-                            className="form-control rounded-0" 
+                            className="form-control" 
                             id="staticEmail2" 
                             placeholder="이메일"
                             required
                             onChange={(e)=>setEmail(e.target.value)}    
                         />
                     </div>
-                    <div className="col p-0">
+                    <div className="form-group mb-4">
                         <label htmlFor="inputPassword2" className="visually-hidden">비밀번호</label>
                         <input 
                             type="password" 
-                            className="form-control rounded-0" 
+                            className="form-control" 
                             id="inputPassword2" 
                             placeholder="비밀번호"
                             required
                             onChange={(e)=>setPassword(e.target.value)}    
                         />
                     </div>
-                    <div className="col-auto d-grid">
-                        <button type="submit" className="btn btn-primary">로그인</button>
-                    </div>
+                    <button type="submit" className="btn btn-primary">로그인</button>
                 </div>
             </form>
             <ToastContainer />
