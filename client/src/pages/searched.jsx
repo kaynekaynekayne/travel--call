@@ -26,7 +26,6 @@ const Searched = () => {
         try{
             if(user && contactInfo){
                 const resp=await addPost({email:user.email, contactInfo});
-                console.log(resp);
                 if(resp.statusText==="OK"){
                     toast.success(resp.data.msg);
                 }else{

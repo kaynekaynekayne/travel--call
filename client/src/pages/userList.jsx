@@ -20,7 +20,6 @@ const UserList = () => {
             try{                
                 setLoading(true);
                 const resp=await getAllLists(email);
-                console.log(resp);
                 if(resp.statusText==="OK"){
                     await dispatch({type:'GET_POSTS', payload:resp.data.posts})
                 } else{
