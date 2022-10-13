@@ -99,9 +99,13 @@ const Searched = () => {
 }
 
 const MainStyle=styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
     margin:4rem 2.5rem;
-
+    
     h2{
         margin-bottom:1.5rem;
     }
