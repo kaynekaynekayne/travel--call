@@ -15,18 +15,15 @@ export const addPost=async({email, contactInfo}={})=>{
         return response;
     }catch(err){
         return err;
-        // throw new Error(err.response.data)
     }
 };
 
 export const getAllLists=async(email)=>{
     try{
         const response=await instance.get(`/api/post/list/${email}`);
-        console.log(response)
         return response;
     }catch(err){
         return err;
-        // throw new Error(err)
     }
 };  
 
@@ -44,7 +41,7 @@ export const deleteList=async({email, post}={})=>{
         );
         return response;
     }catch(err){
-        throw new Error(err.error);
+        return err;
     }
 
 }
