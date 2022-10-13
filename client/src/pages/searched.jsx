@@ -117,7 +117,7 @@ const MainStyle=styled.div`
         box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.3);
     }
     .poster{
-        max-width:80%;
+        max-width:75%;
     }
 `;
 
