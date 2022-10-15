@@ -15,8 +15,12 @@ export const GlobalStyles=createGlobalStyle`
         color:inherit;
         list-style:none;
         border:none;
-        img{
-            margin:0.5rem 0 1.5rem;
-        }
     }
+    img{
+        margin:0.5rem 0 1.5rem;
+    }
+    .vh-90{
+        height:90vh;
+    }
+
 `;
