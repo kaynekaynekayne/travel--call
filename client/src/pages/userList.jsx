@@ -40,10 +40,11 @@ const UserList = () => {
     return (
         <div>
             {loading ? <Loading /> : 
-                !posts || posts.length===0 ? <p>목록이 없습니다</p>
+                (!posts || posts.length===0 ? 
+                    <div className="d-flex flex-column justify-content-center align-items-center vh-90">저장한 목록이 없습니다</div>
                 : posts.map(post=>
                     <EachCard key={post.country_iso_alp2} post={post}/>
-                )
+                ))
             }
             <ToastContainer />
         </div>

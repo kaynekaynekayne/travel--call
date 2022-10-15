@@ -67,7 +67,10 @@ const Searched = () => {
     return (
         <div>
             {loading ? <Loading /> : (
-                noResult ? <h3>결과 없음</h3> : contactInfo && 
+                noResult ? <div className="d-flex flex-column justify-content-center align-items-center vh-90">
+                    <p><strong>{country}</strong>에 대한 결과 없음</p>
+                </div> 
+                : contactInfo && 
                     <MainStyle>
                         <h2>{contactInfo.country_nm}</h2>
                         <img 

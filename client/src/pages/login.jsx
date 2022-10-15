@@ -25,7 +25,7 @@ const Login = () => {
     return (
         <div className="container">
             <form onSubmit={handleSubmit} >
-                <div style={{height:'80vh'}} className="d-flex flex-column justify-content-center align-items-center">
+                <div className="d-flex flex-column justify-content-center align-items-center vh-90">
                     <div className="form-group mb-2">
                         <label htmlFor="staticEmail2" className="visually-hidden">이메일</label>
                         <input 
