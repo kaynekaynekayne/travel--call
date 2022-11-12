@@ -24,6 +24,6 @@
 - Firebase  
 
 #### 배포
-heroku
+- heroku
 
 ## 미리보기
