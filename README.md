@@ -53,5 +53,6 @@
 
 ### 모바일 홈 화면
 ![mobile-home](https://user-images.githubusercontent.com/96046698/201465311-633b8498-ad58-4dab-bc2a-d4a6e3572a7d.png)  
-  
+
+
 
