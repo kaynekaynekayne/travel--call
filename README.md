@@ -23,4 +23,7 @@
 - MongoDB  
 - Firebase  
 
+#### 배포
+heroku
+
 ## 미리보기
