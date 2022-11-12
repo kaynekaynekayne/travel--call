@@ -50,5 +50,7 @@
 ### 저장 페이지  
 ![screen-recording-_2_](https://user-images.githubusercontent.com/96046698/201464773-ac5c66a8-6425-4415-909a-2f1a5553a4b0.gif)  
 
+
 ### 모바일 홈 화면
-![screen-recording-_4_](https://user-images.githubusercontent.com/96046698/201465119-3ed7edb8-76b0-4a1f-8a34-b48c2ecc8837.gif)  
+![mobile-home](https://user-images.githubusercontent.com/96046698/201465207-eac195ec-e6cc-4912-ac42-30b6630eb041.png)  
+  
