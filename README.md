@@ -15,15 +15,15 @@
 ## 기술
 #### 프론트엔드
 -React  
--Bootstrap 
--Material-UI 
--Styled-Components 
+-Bootstrap  
+-Material-UI  
+-Styled-Components  
 
 #### 백엔드
--Node.js
--Express
--MongoDB
--Firebase
+-Node.js  
+-Express  
+-MongoDB  
+-Firebase  
 
 ## 소요기간
 ```
