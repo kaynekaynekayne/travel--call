@@ -2,7 +2,9 @@
 
 ## 구현
 ```
--
+-로그인
+-회원가입
+-국가 공공 데이터 포털의 외교부 국가, 지역별 현지연락처 openAPI를이용한 국가별 현지연락처 출력
 ```
 
 ## 설명
@@ -13,8 +15,15 @@
 ## 기술
 #### 프론트엔드
 -React  
--SCSS  
--Redux-toolkit  
+-Bootstrap
+-Material-UI
+-Styled-Components
+
+#### 백엔드
+-Node.js
+-Express
+-MongoDB
+-Firebase
 
 ## 소요기간
 ```
