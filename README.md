@@ -1,4 +1,4 @@
-# Travel Emergency call
+# [Travel Emergency call](https://travel-call.herokuapp.com/)
 
 ## 프로젝트 소개
 **해외 여행, 출장 등의 이유로 외국에 있을 때 만일의 상황을 대비하여, 대사관의 연락처와 현지의 긴급전화 번호들을 편리하게 검색하고 저장할 수 있는 플랫폼을 구현하였습니다.**
@@ -25,5 +25,8 @@
 
 #### 배포
 - heroku
+
+#### 개요
+- 로그인과 회원가입은 firebase를 통해서 가능하게 만들었으며,  
 
 ## 미리보기
