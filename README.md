@@ -44,7 +44,7 @@
   
 
 ### 검색  
-![screen-recording-_1_](https://user-images.githubusercontent.com/96046698/201464542-08c717da-6896-440a-be36-04efa333e3f6.gif)  
+![screen-recording-_1_](https://user-images.githubusercontent.com/96046698/201464993-130e6f4f-ee68-49e6-9739-17e94d84fdf4.gif)  
 
 
 ### 저장 페이지  
