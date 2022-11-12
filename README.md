@@ -44,4 +44,5 @@
   
 
 ### 검색  
-[screen-recording (1).webm](https://user-images.githubusercontent.com/96046698/201463436-27379073-62c6-4a69-8381-9461c3b20fa3.webm)    
+[screen-recording (1).webm](https://user-images.githubusercontent.com/96046698/201463436-27379073-62c6-4a69-8381-9461c3b20fa3.gif)
+    
