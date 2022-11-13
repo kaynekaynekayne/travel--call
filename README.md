@@ -51,8 +51,4 @@
 ![screen-recording-_2_](https://user-images.githubusercontent.com/96046698/201464773-ac5c66a8-6425-4415-909a-2f1a5553a4b0.gif)  
 
 
-### 모바일 홈 화면
-
-![mobile-home](https://user-images.githubusercontent.com/96046698/201465375-4e52042e-4f29-43b3-860f-c4b6a4d9d833.png)  
- 
 
