@@ -6,8 +6,6 @@ import { addPost } from '../apis/post/post.js';
 import { ConvertStringToHTML } from '../utils/converStringToHTML.js';
 import Loading from '../components/loading.jsx';
 import styled from 'styled-components';
-import {AddBox} from '@mui/icons-material';
-import {Button} from '@mui/material';
 import {ToastContainer, toast} from 'material-react-toastify';
 import 'material-react-toastify/dist/ReactToastify.css';
 
@@ -75,12 +73,14 @@ const Searched = () => {
                         <h2>{contactInfo.country_nm}</h2>
                         <img 
                             className='flag'
-                            src={contactInfo.flag_download_url} alt="flag"/><br/>
-                        <Button 
-                            onClick={handleClick} 
-                            variant="outlined" 
-                            startIcon={<AddBox />}
-                        >저장</Button>
+                            src={contactInfo.flag_download_url}
+                            alt="flag"
+                        />
+                        <button 
+                            type="button" 
+                            class="btn btn-outline-primary"
+                            onClick={handleClick}
+                        >저장하기</button>
                         <Content>
                             {ConvertStringToHTML(contactInfo.contact_remark)}
                         </Content>
