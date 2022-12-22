@@ -1,7 +1,5 @@
 import React,{useState} from 'react'
 import {useNavigate} from 'react-router-dom';
-import {Public} from '@mui/icons-material';
-import {OutlinedInput, InputAdornment} from '@mui/material';
 
 const Search = () => {
     const [country, setCountry]=useState("");
@@ -15,18 +13,13 @@ const Search = () => {
 
     return (
         <form onSubmit={submitHandler}>
-            <OutlinedInput
-                required
+            <input 
+                class="form-control mr-sm-2" 
+                type="search"
                 placeholder="나라를 검색하세요"
+                aria-label="Search"
                 value={country}
                 onChange={(e)=>setCountry(e.target.value)}
-                size="small"
-                sx={{width:'50vw'}}
-                endAdornment={
-                    <InputAdornment position="start">
-                        <Public />
-                    </InputAdornment>
-                }
             />
         </form>
     )
