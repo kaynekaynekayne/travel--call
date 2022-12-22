@@ -51,7 +51,6 @@
 
 
 ### 유저리스트 페이지  
-![screen-recording-_2_](https://user-images.githubusercontent.com/96046698/201464773-ac5c66a8-6425-4415-909a-2f1a5553a4b0.gif)  
-
+![screen-recording-_1_](https://user-images.githubusercontent.com/96046698/209088459-b06541c1-af92-4f55-b167-83ff4af9ecac.gif)  
 
 
