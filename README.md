@@ -47,7 +47,7 @@
 
 
 ### 검색  
-![screen-recording-_1_](https://user-images.githubusercontent.com/96046698/201464993-130e6f4f-ee68-49e6-9739-17e94d84fdf4.gif)  
+![screen-recording](https://user-images.githubusercontent.com/96046698/209087912-ea496f10-83ab-480c-88a3-0531759f7ef9.gif)  
 
 
 ### 유저리스트 페이지  
