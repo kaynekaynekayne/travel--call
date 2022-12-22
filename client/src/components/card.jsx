@@ -38,7 +38,7 @@ const EachCard = ({post, index}) => {
                 </div>
 
                 <div id={`collapse${index}`} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
+                    <div class="card-body m-3">
                         {ConvertStringToHTML(contact_remark)}
                     </div>
                 </div>
