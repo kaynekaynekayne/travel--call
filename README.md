@@ -35,16 +35,16 @@
 
 ## 미리보기  
 ### 홈 화면  
-![tc-home](https://user-images.githubusercontent.com/96046698/209084916-e0674613-5fc1-4241-991f-34edd98d820a.png)  
-  
+![tc-home](https://user-images.githubusercontent.com/96046698/209086714-9e79df2f-c064-4b8c-9588-a1b3831e1041.png)  
+
 
 ### 회원가입  
-![tc-signup](https://user-images.githubusercontent.com/96046698/209084927-3aa4d82a-82da-4dc1-b2f3-a4a719b8b877.png)     
-  
+![tc-signup](https://user-images.githubusercontent.com/96046698/209087169-6027c484-fb38-41d2-8514-ba501fb94d37.png)  
+
 
 ### 로그인  
-![tc-login](https://user-images.githubusercontent.com/96046698/209085165-ac299de6-26f1-464e-922f-2e5884741c81.png)  
-  
+![tc-login](https://user-images.githubusercontent.com/96046698/209087407-538561c4-3e94-478f-afce-4b946ab5eae0.png)  
+
 
 ### 검색  
 ![screen-recording-_1_](https://user-images.githubusercontent.com/96046698/201464993-130e6f4f-ee68-49e6-9739-17e94d84fdf4.gif)  
